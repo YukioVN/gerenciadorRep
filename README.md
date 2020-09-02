@@ -1,2 +1,0 @@
-# gerenciadorRep
-Projeto para 
