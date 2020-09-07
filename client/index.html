@@ -12,43 +12,119 @@
 </head>
 
 <body>
-    <div class="container-navbar">
-        <div id="navbar-start">
-            <a href="#" class="menu-bars" id="show-menu">
-                <i class="fas fa-bars"></i>
-            </a>
+
+    <div class="container-register">
+        <a class="links" id="paracadastro"></a>
+        <a class="links" id="paralogin"></a>
+        <div class="header">
+            <ul class="header-register">
+                <li class="header-info header-text"><a href="#">Sobre</a></li>
+                <li class="header-info header-text"><a href="#">Funcionalidade</a></li>
+            </ul>
         </div>
-        <!--navbar-start-->
-        <div id="navbar-end">
-            <a href="#">
-                <i class="fas fa-bell icon fa-2x"></i>
-            </a>
-            <a href="#">
-                <i class="fas fa-user fa-2x"></i>
-            </a>
+        <div class="content">
+            <div class="center">
+                <div id="login">
+                    <h2>Login</h2>
+                    <form action=".">
+                        <div class="input-container">
+                            <input type="text" name="name" placeholder="Nome de usuário" required>
+                        </div>
+                        <!-- input-container -->
+
+                        <div class="input-container">
+                            <input type="password" name="password" placeholder="Senha" required>
+                        </div>
+                        <!-- input-container -->
+
+                        <div class="input-submit-container">
+                            <input type="submit" name="action" value="Logar">
+                        </div>
+                        <!-- input-submit-container -->
+                        <p class="link">
+                            Ainda não tem conta?
+                            <a href="#paracadastro">Cadastre-se</a>
+                        </p>
+                    </form>
+                </div>
+                <!-- login -->
+                <div id="register">
+                    <h2>Cadastro</h2>
+                    <form action=".">
+                        <div class="input-container">
+                            <span>Nome</span>
+                            <input type="text" name="name" placeholder="Digite seu nome" required>
+                        </div>
+                        <!-- input-container -->
+
+                        <div class="input-container">
+                            <span>Email</span>
+                            <input type="email" name="email" placeholder="Digite seu email" required>
+                        </div>
+                        <!-- input-container -->
+
+                        <div class="input-container">
+                            <span>Senha</span>
+                            <input type="password" name="password" placeholder="Digite uma senha" required>
+                        </div>
+                        <!-- input-container -->
+
+                        <div class="input-submit-container">
+                            <input type="submit" name="action" value="Cadastrar">
+                        </div>
+                        <!-- input-submit-container -->
+                        <p class="link">
+                            Já tem conta?
+                            <a class="link" href="#paralogin"> Ir para Login </a>
+                        </p>
+                    </form>
+                </div>
+                <!--register-->
+            </div>
         </div>
-        <!--navbar-end-->
+        <!--content-->
     </div>
-    <!--container-navbar-->
-    <nav id="nav-menu">
-        <ul class="nav-menu-items">
-            <div id="navbar-toggle">
-                <a href="#" class="menu-bars" id="hide-menu">
-                    <i class="fas fa-bars nav-icon"></i>
+    <!--container-register-->
+    <div class="site hide">
+        <div class="container-navbar">
+            <div id="navbar-start">
+                <a href="#" class="menu-bars" id="show-menu">
+                    <i class="fas fa-bars"></i>
                 </a>
             </div>
-            <!--navbar-toggle-->
-            <hr/>
-            <div class="nav-section">
-                <li class="nav-text"><a href="#"><i class="fas fa-home nav-icon"></i>Início</a></li>
-                <li class="nav-text"><a href="#"><i class="fas fa-tasks nav-icon"></i>Tarefas</a></li>
-                <li class="nav-text"><a href="#"><i class="fas fa-calculator nav-icon"></i>Contas</a></li>
-                <li class="nav-text"><a href="#"><i class="far fa-calendar-alt nav-icon"></i>Eventos</a></li>
-                <li class="nav-text"><a href="#"><i class="fas fa-trophy nav-icon"></i>Ranking</a></li>
+            <!--navbar-start-->
+            <div id="navbar-end">
+                <a href="#">
+                    <i class="fas fa-bell icon fa-2x"></i>
+                </a>
+                <a href="#">
+                    <i class="fas fa-user fa-2x"></i>
+                </a>
             </div>
-            <!--nav-section-->
-        </ul>
-    </nav>
+            <!--navbar-end-->
+        </div>
+        <!--container-navbar-->
+        <nav id="nav-menu">
+            <ul class="nav-menu-items">
+                <div id="navbar-toggle">
+                    <a href="#" class="menu-bars" id="hide-menu">
+                        <i class="fas fa-bars nav-icon"></i>
+                    </a>
+                </div>
+                <!--navbar-toggle-->
+                <hr/>
+                <div class="nav-section">
+                    <li class="nav-text"><a href="#"><i class="fas fa-home nav-icon"></i>Início</a></li>
+                    <li class="nav-text"><a href="#"><i class="fas fa-tasks nav-icon"></i>Tarefas</a></li>
+                    <li class="nav-text"><a href="#"><i class="fas fa-calculator nav-icon"></i>Contas</a></li>
+                    <li class="nav-text"><a href="#"><i class="far fa-calendar-alt nav-icon"></i>Eventos</a></li>
+                    <li class="nav-text"><a href="#"><i class="fas fa-trophy nav-icon"></i>Ranking</a></li>
+                </div>
+                <!--nav-section-->
+            </ul>
+        </nav>
+    </div>
+    <!--site-->
     <script src="js/scripts.js"></script>
 </body>
 
