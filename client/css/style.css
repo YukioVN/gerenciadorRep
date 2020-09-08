@@ -296,3 +296,21 @@ input[type="submit"]:hover {
         transform: translateX(-20px);
     }
 }
+
+.header-container {
+    margin: 0 auto;
+    width: 100vw;
+    background: #3d9db3;
+    height: 40px;
+}
+
+.header-text {
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+}
+
+.header-text a:hover {
+    cursor: pointer;
+    color: rgb(150, 150, 150);
+}
