@@ -21,10 +21,6 @@ h2 {
     margin: 0 auto;
 }
 
-.hide {
-    display: none;
-}
-
 .header-text a {
     text-decoration: none;
     list-style: none;
@@ -135,7 +131,7 @@ h2 {
 /*marcando os links para mudar de um formulário para outro */
 
 .content {
-    top: 30px;
+    top: 100px;
     width: 500px;
     margin: auto;
     position: relative;
