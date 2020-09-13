@@ -33,7 +33,7 @@ public class Usuario {
         return apelido;
     }
 
-    public void setApelido(){
+    public void setApelido(String apelido){
         this.apelido = apelido;
     }
 
