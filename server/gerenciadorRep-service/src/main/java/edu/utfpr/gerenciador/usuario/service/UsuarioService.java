@@ -30,6 +30,10 @@ public class UsuarioService {
         for (Usuario item : lista){
             if (item.getId() == usuario.getId()){
                 item.setNome(usuario.getNome());
+                item.setSobrenome(usuario.getSobrenome());
+                item.setEmail(usuario.getEmail());
+                item.setApelido(usuario.getApelido());
+
             }
         }
 
