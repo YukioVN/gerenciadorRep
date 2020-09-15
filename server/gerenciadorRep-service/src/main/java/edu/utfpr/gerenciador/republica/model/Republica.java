@@ -1,8 +1,8 @@
-package edu.utfpr.gerenciador.usuario.model;
+package edu.utfpr.gerenciador.republica.model;
 
 import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
 
-public class Usuario {
+public class Republica {
 
     private final long id;
     private String nome;
@@ -10,12 +10,12 @@ public class Usuario {
     private String apelido;
     private String email;
 
-    public Usuario(){
+    public Republica(){
         // Construtor default
         this.id = GerenciadorRepUtil.novoId();
     }
 
-    public Usuario(long id, String nome, String sobrenome, String apelido, String email) {
+    public Republica(long id, String nome, String sobrenome, String apelido, String email) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;

@@ -1,4 +1,4 @@
-package edu.utfpr.gerenciador.usuario.util;
+package edu.utfpr.gerenciador.util;
 
 import java.util.concurrent.atomic.AtomicLong;
 
