@@ -2,11 +2,11 @@ package edu.utfpr.gerenciador.usuario.model;
 
 import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
 
+@Entity
 public class Usuario {
 
     private final long id;
-    private String nome;
-    private String sobrenome;
+    private String nomeCompleto;
     private String apelido;
     private String email;
 
@@ -15,10 +15,9 @@ public class Usuario {
         this.id = GerenciadorRepUtil.novoId();
     }
 
-    public Usuario(long id, String nome, String sobrenome, String apelido, String email) {
+    public Usuario(long id, String nomeCompleto, String apelido, String email) {
         this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
+        this.nomeCompleto = nomeCompleto;
         this.apelido = apelido;
         this.email = email;
     }
@@ -43,19 +42,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
     public String getNome() {
-        return nome;
+        return nomeCompleto;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeCompleto = nomeCompleto;
     }
 }

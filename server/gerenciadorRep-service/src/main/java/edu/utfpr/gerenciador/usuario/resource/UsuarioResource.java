@@ -16,11 +16,11 @@ public class UsuarioResource {
 
 
     @GetMapping("/usuarios")
-    public List<Usuario> usuarios(@RequestParam(value = "name", required = false) String nome) {
+    public List<Usuario> usuarios(@RequestParam(value = "nickname", required = false) String apelido) {
         final List<Usuario> lista = usuarioService.getLista();
         final List<Usuario> listaRetorno = new ArrayList<>();
         for (Usuario usuario : lista) {
-            if (nome == null || usuario.getNome().contains(nome)) {
+            if (apelido == null || usuario.getApelido().contains(apelido)) {
                 listaRetorno.add(usuario);
             }
         }
