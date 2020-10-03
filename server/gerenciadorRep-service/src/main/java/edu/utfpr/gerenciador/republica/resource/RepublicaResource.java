@@ -3,6 +3,8 @@ package edu.utfpr.gerenciador.republica.resource;
 import edu.utfpr.gerenciador.republica.model.Republica;
 import edu.utfpr.gerenciador.republica.service.RepublicaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,11 +36,15 @@ public class RepublicaResource {
 
     @PutMapping("/republica")
     public void update(@RequestBody Republica republica) {
-        republicaService.update(republica);
+        republicaService.save(republica);
     }
 
     @DeleteMapping("/republica")
-    public void delete(@RequestParam(value = "id", required = true) long id) {
-        republicaService.delete(id);
+    public ResponseEntity<Void> delete(@RequestParam(value = "id", required = true) long id) {
+        if (republicaService.delete(id)){
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }

@@ -2,11 +2,16 @@ package edu.utfpr.gerenciador.usuario.model;
 
 import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
 
+import javax.persistence.*;
+
+@Table(name = "TB_USUARIO")
+@Entity
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final long id;
-    private String nome;
-    private String sobrenome;
+    private String nomeCompleto;
     private String apelido;
     private String email;
 
@@ -15,10 +20,9 @@ public class Usuario {
         this.id = GerenciadorRepUtil.novoId();
     }
 
-    public Usuario(long id, String nome, String sobrenome, String apelido, String email) {
+    public Usuario(long id, String nomeCompleto, String apelido, String email) {
         this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
+        this.nomeCompleto = nomeCompleto;
         this.apelido = apelido;
         this.email = email;
     }
@@ -43,19 +47,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 }
