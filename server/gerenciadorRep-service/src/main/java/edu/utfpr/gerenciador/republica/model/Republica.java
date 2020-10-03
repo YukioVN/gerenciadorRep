@@ -1,7 +1,5 @@
 package edu.utfpr.gerenciador.republica.model;
 
-import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
-
 import javax.persistence.*;
 
 @Table(name = "TB_REPUBLICA")
@@ -10,7 +8,7 @@ public class Republica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
     private String nome;
     private String rua;
     private int numero;
@@ -18,7 +16,6 @@ public class Republica {
 
     public Republica(){
         // Construtor default
-        this.id = GerenciadorRepUtil.novoId();
     }
 
     public Republica(long id, String nome, String rua, int numero, String cep) {

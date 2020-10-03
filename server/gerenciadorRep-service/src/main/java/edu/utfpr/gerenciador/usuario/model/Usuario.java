@@ -1,7 +1,5 @@
 package edu.utfpr.gerenciador.usuario.model;
 
-import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
-
 import javax.persistence.*;
 
 @Table(name = "TB_USUARIO")
@@ -10,14 +8,13 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
     private String nomeCompleto;
     private String apelido;
     private String email;
 
     public Usuario(){
         // Construtor default
-        this.id = GerenciadorRepUtil.novoId();
     }
 
     public Usuario(long id, String nomeCompleto, String apelido, String email) {
