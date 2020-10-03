@@ -2,53 +2,35 @@ package edu.utfpr.gerenciador.republica.model;
 
 import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
 
+import javax.persistence.*;
+
+@Table(name = "TB_REPUBLICA")
+@Entity
 public class Republica {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final long id;
     private String nome;
-    private String sobrenome;
-    private String apelido;
-    private String email;
+    private String rua;
+    private int numero;
+    private String cep;
 
     public Republica(){
         // Construtor default
         this.id = GerenciadorRepUtil.novoId();
     }
 
-    public Republica(long id, String nome, String sobrenome, String apelido, String email) {
+    public Republica(long id, String nome, String rua, int numero, String cep) {
         this.id = id;
         this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.apelido = apelido;
-        this.email = email;
+        this.rua = rua;
+        this.numero = numero;
+        this.cep = cep;
     }
 
     public long getId() {
         return id;
-    }
-
-    public String getApelido() {
-        return apelido;
-    }
-
-    public void setApelido(String apelido){
-        this.apelido = apelido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getNome() {
@@ -57,5 +39,29 @@ public class Republica {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 }
