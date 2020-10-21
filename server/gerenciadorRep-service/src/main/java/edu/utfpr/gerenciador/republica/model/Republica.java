@@ -1,6 +1,11 @@
 package edu.utfpr.gerenciador.republica.model;
 
+import edu.utfpr.gerenciador.tarefa.model.Tarefa;
+import edu.utfpr.gerenciador.usuario.model.Usuario;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "TB_REPUBLICA")
 @Entity
@@ -13,6 +18,12 @@ public class Republica {
     private String rua;
     private int numero;
     private String cep;
+    @OneToMany(mappedBy = "republica")
+    private List<Usuario> moradores;
+
+    @OneToMany(mappedBy = "republica")
+    private List<Tarefa> tarefas;
+
 
     public Republica(){
         // Construtor default
@@ -60,5 +71,27 @@ public class Republica {
 
     public void setRua(String rua) {
         this.rua = rua;
+    }
+
+    public List<Usuario> getMoradores() {
+        if (moradores == null){
+            moradores = new ArrayList<>();
+        }
+        return moradores;
+    }
+
+    public void setMoradores(List<Usuario> moradores) {
+        this.moradores = moradores;
+    }
+
+    public List<Tarefa> getTarefas() {
+        if (tarefas == null){
+            tarefas = new ArrayList<>();
+        }
+        return tarefas;
+    }
+
+    public void setTarefas(List<Tarefa> tarefas) {
+        this.tarefas = tarefas;
     }
 }
