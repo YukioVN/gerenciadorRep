@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'; 
 import './Calendar.css';
+import moment from 'moment';
 import { PageContainer } from '../../MainComponents';
 
 const ReactCalendar = () => { 
@@ -10,6 +11,10 @@ const ReactCalendar = () => {
   const onChange = date => {
       setDate(date);
   }
+
+  useEffect(() => {
+    fetch("http://localhost:8080/republica/1/acoes-do-dia/?data="+moment(date).format("yyyy-MM-DD")).then((json) => console.log(json.body));
+  },[date]);
  
 
     return (
