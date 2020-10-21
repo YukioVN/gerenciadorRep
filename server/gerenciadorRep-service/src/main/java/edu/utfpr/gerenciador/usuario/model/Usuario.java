@@ -1,8 +1,11 @@
 package edu.utfpr.gerenciador.usuario.model;
 
-import edu.utfpr.gerenciador.util.GerenciadorRepUtil;
+import edu.utfpr.gerenciador.republica.model.Republica;
+import edu.utfpr.gerenciador.tarefa.model.Tarefa;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "TB_USUARIO")
 @Entity
@@ -10,14 +13,20 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
     private String nomeCompleto;
     private String apelido;
     private String email;
+    private Perfil perfil;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", columnDefinition = "republica_id")
+    private Republica republica;
+
+    @OneToMany(mappedBy = "usuarioDesignado")
+    private List<Tarefa> tarefas;
 
     public Usuario(){
         // Construtor default
-        this.id = GerenciadorRepUtil.novoId();
     }
 
     public Usuario(long id, String nomeCompleto, String apelido, String email) {
@@ -53,5 +62,24 @@ public class Usuario {
 
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
+    }
+
+    public Republica getRepublica() {
+        return republica;
+    }
+
+    public void setRepublica(Republica republica) {
+        this.republica = republica;
+    }
+
+    public List<Tarefa> getTarefas() {
+        if (tarefas == null){
+            tarefas = new ArrayList<>();
+        }
+        return tarefas;
+    }
+
+    public void setTarefas(List<Tarefa> tarefas) {
+        this.tarefas = tarefas;
     }
 }
