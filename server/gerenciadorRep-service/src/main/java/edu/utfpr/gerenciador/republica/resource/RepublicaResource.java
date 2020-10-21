@@ -2,6 +2,7 @@ package edu.utfpr.gerenciador.republica.resource;
 
 import edu.utfpr.gerenciador.republica.model.Republica;
 import edu.utfpr.gerenciador.republica.service.RepublicaService;
+import edu.utfpr.gerenciador.tarefa.model.Tarefa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,11 @@ public class RepublicaResource {
         return listaRetorno;
     }
 
+    @GetMapping("/republica/{republicaId}")
+    public Republica republica(@PathVariable(name = "republicaId") Long republicaId) {
+        return republicaService.get(republicaId);
+    }
+
     @PostMapping("/republica")
     public Republica save(@RequestBody Republica republica) {
         return republicaService.save(republica);
@@ -47,4 +53,17 @@ public class RepublicaResource {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    @PostMapping("/republica/{republicaId}/moradores/{moradorId}")
+    public void addMorador(@PathVariable(name = "republicaId") Long republicaId,
+                           @PathVariable(name = "moradorId") Long moradorId){
+        republicaService.addUsuario(republicaId, moradorId);
+    }
+
+    @PostMapping("/republica/{republicaId}/tarefa/")
+    public void addTarefa(@PathVariable(name = "republicaId") Long republicaId,
+                           @RequestBody Tarefa tarefa){
+        republicaService.addTarefa(republicaId, tarefa);
+    }
+
 }
