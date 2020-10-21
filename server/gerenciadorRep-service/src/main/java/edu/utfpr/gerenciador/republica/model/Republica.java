@@ -1,7 +1,11 @@
 package edu.utfpr.gerenciador.republica.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import edu.utfpr.gerenciador.conta.model.Conta;
+import edu.utfpr.gerenciador.evento.model.Evento;
 import edu.utfpr.gerenciador.tarefa.model.Tarefa;
 import edu.utfpr.gerenciador.usuario.model.Usuario;
+import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,12 +22,22 @@ public class Republica {
     private String rua;
     private int numero;
     private String cep;
-    @OneToMany(mappedBy = "republica")
+    private double valorEmCaixa;
+
+    @OneToMany(mappedBy = "republica", fetch = FetchType.EAGER)
     private List<Usuario> moradores;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "republica")
     private List<Tarefa> tarefas;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "republica")
+    private List<Conta> contas;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "republica")
+    private List<Evento> eventos;
 
     public Republica(){
         // Construtor default
@@ -73,6 +87,14 @@ public class Republica {
         this.rua = rua;
     }
 
+    public double getValorEmCaixa() {
+        return valorEmCaixa;
+    }
+
+    public void setValorEmCaixa(double valorEmCaixa) {
+        this.valorEmCaixa = valorEmCaixa;
+    }
+
     public List<Usuario> getMoradores() {
         if (moradores == null){
             moradores = new ArrayList<>();
@@ -93,5 +115,27 @@ public class Republica {
 
     public void setTarefas(List<Tarefa> tarefas) {
         this.tarefas = tarefas;
+    }
+
+    public List<Conta> getContas() {
+        if (contas == null){
+            contas = new ArrayList<>();
+        }
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
+
+    public List<Evento> getEventos() {
+        if (eventos == null){
+            eventos = new ArrayList<>();
+        }
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
     }
 }

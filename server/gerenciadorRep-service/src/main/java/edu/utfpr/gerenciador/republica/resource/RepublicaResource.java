@@ -1,5 +1,6 @@
 package edu.utfpr.gerenciador.republica.resource;
 
+import edu.utfpr.gerenciador.republica.model.CaixinhaRequest;
 import edu.utfpr.gerenciador.republica.model.Republica;
 import edu.utfpr.gerenciador.republica.service.RepublicaService;
 import edu.utfpr.gerenciador.tarefa.model.Tarefa;
@@ -16,7 +17,6 @@ public class RepublicaResource {
 
     @Autowired
     private RepublicaService republicaService;
-
 
     @GetMapping("/republicas")
     public List<Republica> republicas(@RequestParam(value = "name", required = false) String nome) {
@@ -64,6 +64,16 @@ public class RepublicaResource {
     public void addTarefa(@PathVariable(name = "republicaId") Long republicaId,
                            @RequestBody Tarefa tarefa){
         republicaService.addTarefa(republicaId, tarefa);
+    }
+
+    @PostMapping("/republica/{republicaId}/caixinha/")
+    public void addTarefa(@PathVariable(name = "republicaId") Long republicaId,
+                          @RequestBody CaixinhaRequest caixinhaRequest){
+        if (caixinhaRequest.getOperacao().equals(CaixinhaRequest.Operacao.SOMAR)){
+            republicaService.somarValorCaixinha(republicaId, caixinhaRequest.getValorOperacao());
+        } else if (caixinhaRequest.getOperacao().equals(CaixinhaRequest.Operacao.SUBTRAIR)){
+            republicaService.subtrairValorCaixinha(republicaId, caixinhaRequest.getValorOperacao());
+        }
     }
 
 }

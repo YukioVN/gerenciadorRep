@@ -16,8 +16,8 @@ public class EventoService {
     @Autowired
     private EventoRepository eventoRepository;
 
-    public Evento get(Long tarefaId){
-        return eventoRepository.getOne(tarefaId);
+    public Evento get(Long eventoId){
+        return eventoRepository.getOne(eventoId);
     }
 
     public List<Evento> getLista() {

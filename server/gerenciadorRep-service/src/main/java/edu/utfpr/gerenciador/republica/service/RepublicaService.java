@@ -55,7 +55,7 @@ public class RepublicaService {
     }
 
     public Republica get(Long republicaId) {
-        return republicaRepository.getOne(republicaId);
+        return republicaRepository.findById(republicaId).orElseThrow();
     }
 
     public void addTarefa(Long republicaId, Tarefa tarefaNova) {
@@ -67,4 +67,19 @@ public class RepublicaService {
         republicaRepository.save(republica);
     }
 
+    public void somarValorCaixinha(Long republicaId, double valorOperacao) {
+        Republica republica = republicaRepository.getOne(republicaId);
+
+        republica.setValorEmCaixa(republica.getValorEmCaixa() + valorOperacao);
+
+        republicaRepository.save(republica);
+    }
+
+    public void subtrairValorCaixinha(Long republicaId, double valorOperacao) {
+        Republica republica = republicaRepository.getOne(republicaId);
+
+        republica.setValorEmCaixa(republica.getValorEmCaixa() - valorOperacao);
+
+        republicaRepository.save(republica);
+    }
 }
