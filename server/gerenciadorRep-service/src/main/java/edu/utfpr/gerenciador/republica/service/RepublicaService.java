@@ -61,10 +61,8 @@ public class RepublicaService {
     public void addTarefa(Long republicaId, Tarefa tarefaNova) {
         Republica republica = republicaRepository.getOne(republicaId);
 
-        Tarefa tarefa = tarefaService.save(tarefaNova);
-
-        republica.getTarefas().add(tarefa);
-        republicaRepository.save(republica);
+        tarefaNova.setRepublica(republica);
+        tarefaService.save(tarefaNova);
     }
 
     public void somarValorCaixinha(Long republicaId, double valorOperacao) {
