@@ -26,7 +26,7 @@ const Header = () => {
                         {logged && //Se tiver logado
                             <>
                                 <li>
-                                    <Link to="/my-account">Minha conta</Link>
+                                    <Link to="/Republica">República</Link>
                                 </li>
                                 <li>
                                     <button onClick={handleLogout}>Sair</button>

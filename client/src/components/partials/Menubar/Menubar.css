@@ -84,10 +84,18 @@ span {
     justify-items: flex-start;
 }
 
-@media only screen and (min-width: 1001px) and (max-width: 1920px) {
+@media only screen and (min-width: 1615px) and (max-width: 1920px) {
     .nav-menu.active {
         display: block;
         max-width: 1000px;
         right: 300px;
+    }
+}
+
+@media only screen and (min-width: 1215px) and (max-width: 1614px) {
+    .nav-menu.active {
+        display: block;
+        max-width: 1000px;
+        right: 100px;
     }
 }

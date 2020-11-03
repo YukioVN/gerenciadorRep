@@ -10,7 +10,7 @@ import Events from './pages/Events';
 import Expenses from './pages/Expenses';
 import Ranking from './pages/Ranking';
 import Tasks from './pages/Tasks';
-import MyAccount from './pages/MyAccount'; 
+import Republica from './pages/Republica'; 
 import Rules from './pages/Rules';
 
 export default () => {
@@ -23,8 +23,8 @@ export default () => {
             <Route exact path="/about">
                 <About />
             </Route>
-            <Route exact path="/MyAccount">
-                <MyAccount />
+            <Route exact path="/Republica">
+                <Republica />
             </Route>
             <Route exact path="/signin">
                 <SignIn />

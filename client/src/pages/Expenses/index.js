@@ -4,7 +4,7 @@ import { IncomeExpenses } from '../../components/partials/ExpensesFuntions/Incom
 import { TransactionList } from '../../components/partials/ExpensesFuntions/TransactionList';
 import { AddTransaction } from '../../components/partials/ExpensesFuntions/AddTransactions';
 import { PageArea } from './styled';
-import { PageContainer } from '../../components/MainComponents'
+import { PageContainer } from '../../components/MainComponents';
 
 import { GlobalProvider } from '../../context/GlobalState';
 
